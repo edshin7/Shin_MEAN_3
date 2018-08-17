@@ -1,0 +1,12 @@
+<div>
+  <h2>Add new Restaurant</h2>
+  <p *ngFor="let error of errors" style="color:red">{{error.message}}</p>
+  <form (submit)="submitRest()">
+    <p>Restaurant name:</p>
+    <input type="text" name="name" [(ngModel)]="newRest.name"><br/>
+    <p>Cuisine:</p>
+    <input type="text" name="cuisine" [(ngModel)]="newRest.cuisine"><br/>
+    <button [routerLink]="['/']">Cancel</button> 
+    <input type="submit" value="submit">
+  </form>
+</div>

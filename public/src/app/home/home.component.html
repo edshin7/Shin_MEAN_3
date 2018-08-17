@@ -1,0 +1,25 @@
+<div>
+  <button [routerLink]="['/newRestaurant']">New Restaurant</button>
+  <app-edit *ngIf="curEditId" [curRestId]="curEditId" (emitter)="exitEdit($event)"></app-edit>
+  <table>
+    <thead>
+      <tr>
+        <th>Restaurant</th>
+        <th>Cuisine</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rest of rests">
+        <td>{{ rest.name }}</td>
+        <td>{{ rest.cuisine }}</td>
+        <td>
+          <button [routerLink]="['/restaurant', rest._id]">read reviews</button>
+          <button (click)="goToEdit(rest._id)">Update</button>
+          <!-- <button [routerLink]="['/editRestaurant', rest._id]">update</button> -->
+          <button *ngIf="passed30(rest.createdAt)" (click)="deleteRest(rest._id)">delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,13 @@
+<div id="editBox">
+  <h2>Edit Restaurant</h2>
+  <p *ngFor="let error of errors" style="color:red">{{error.message}}</p>
+  <form *ngIf="curRest" (submit)="editRest(curRest._id)">
+    <p>Restaurant name:</p>
+    <input type="text" name="name" [(ngModel)]="curRest.name"><br/>
+    <p>Cuisine:</p>
+    <input type="text" name="cuisine" [(ngModel)]="curRest.cuisine"><br/>
+    <!-- <button [routerLink]="['/']">Cancel</button>  -->
+    <button (click)="finishEdit()">Cancel</button> 
+    <input type="submit" value="submit">
+  </form>
+</div>

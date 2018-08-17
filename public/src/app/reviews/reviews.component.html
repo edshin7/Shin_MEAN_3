@@ -1,0 +1,22 @@
+<div>
+  <h2>Reviews for {{ curRest.name }}</h2>
+  <button [routerLink]="['/']">Back</button>
+  <button [routerLink]="['/newReview', curId]">New Review</button><br/>
+  <table>
+    <thead>
+      <tr>
+        <th>Customer</th>
+        <th>Stars</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="reviews.length > 0">
+      <tr *ngFor="let review of reviews">
+        <td>{{review.name}}</td>
+        <td>{{review.rating}}</td>
+        <td>{{review.content}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
